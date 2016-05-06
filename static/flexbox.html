@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <style>
+        body {
+            font-family: Roboto;
+        }
+        .box div  {
+            box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+            opacity: 0.9;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            width: 50%;
+        }
+        .width-full div  {
+            width: 100%;
+        }
+        .no-width div {
+            width: auto;
+            padding: 8px;
+        }
+        .box div:nth-child(1) {
+            background-color: #009688;
+        }
+        .box div:nth-child(2) {
+            background-color: #3949ab;
+        }
+        .box div:nth-child(3) {
+            background-color: #9c27b0;
+        }
+        .box div:nth-child(4) {
+            background-color: #8bc34a;
+        }
+        .box div:nth-child(5) {
+            background-color: #deb867;
+        }
+        .box div:nth-child(6) {
+            background-color: #FF5722;
+        }
+        .box div:nth-child(7) {
+            background-color: #03A9F4;
+        }
+        .different-size div:nth-child(1) {
+            padding: 30px 0;
+            font-size: 8px;
+        }
+        .different-size div:nth-child(2) {
+            padding: 8px 0;
+            font-size: 30px;
+        }
+        .different-size div:nth-child(3) {
+            padding: 15px 0;
+        }
+        .different-size div:nth-child(4) {
+            padding: 4px 0;
+        }
+        .different-size div:nth-child(5) {
+            padding: 30px 0;
+        }
+        .different-size div:nth-child(6) {
+            padding: 5px 0;
+            font-size: 24px;
+        }
+        .different-size div:nth-child(7) {
+            padding: 18px 0;
+        }
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .wrap {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .box {
+            height: 210px;
+            display: flex;
+            background-color: #E3ECF5;
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+                        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+                        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .row-wrap{
+            flex-flow: row wrap;
+        }
+        h2 {
+            text-align: center;
+            font-weight: normal;
+        }
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+        .dashed {
+            position: absolute;
+            left: 0;
+            top: 106px;
+            width: 100%;
+            z-index: 1;
+            border: 2px dashed;
+        }
+    </style>
+</head>
+<body class="container">
+    <h1>flex-direction</h1>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>row</h2>
+        <div class="box width-full" style="flex-direction: row;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>row-reverse</h2>
+        <div class="box width-full" style="flex-direction: row-reverse;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>column</h2>
+        <div class="box width-full" style="flex-direction: column;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>column-reverse</h2>
+        <div class="box width-full" style="flex-direction: column-reverse;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <h1><hr>flex-wrap</h1>
+    <div class="wrap">
+        <h2>nowrap</h2>
+        <div class="row-wrap box" style="flex-wrap: nowrap;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>wrap</h2>
+        <div class="row-wrap box" style="flex-wrap: wrap;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>wrap-reverse</h2>
+        <div class="row-wrap box" style="flex-wrap: wrap-reverse;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>order</h1>
+        <div class="box">
+            <div style="order: 2;">
+                order: 2;
+                <p>One</p>
+            </div>
+            <div>
+                <p>Two</p>
+            </div>
+            <div  style="order: -2;">
+                order: -2;
+                <p>Three</p>
+            </div>
+            <div  style="order: 1;">
+                order: 1;
+                <p>Four</p>
+            </div>
+            <div  style="order: 2;">
+                order: 2;
+                <p>Five</p>
+            </div>
+            <div  style="order: -1;">
+                order: -1;
+                <p>Six</p>
+            </div>
+        </div>
+    </div>
+    <h1><hr>justify-content</h1>
+    <div class="wrap">
+        <h2>flex-start</h2>
+        <div class="no-width box" style="justify-content: flex-start">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>flex-end</h2>
+        <div class="no-width box" style="justify-content: flex-end;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>center</h2>
+        <div class="no-width box" style="justify-content: center;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>space-between</h2>
+        <div class="no-width box" style="justify-content: space-between;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>space-around</h2>
+        <div class="no-width box" style="justify-content: space-around;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <h1><hr>align-items</h1>
+    <div class="wrap">
+        <h2>flex-start</h2>
+        <div class="different-size box" style="align-items: flex-start">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>flex-end</h2>
+        <div class="different-size box" style="align-items: flex-end;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>center</h2>
+        <div class="different-size box" style="align-items: center;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>stretch</h2>
+        <div class="different-size box" style="align-items: stretch;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: calc(50% - 20px);">
+        <h2>baseline</h2>
+        <hr class="dashed">
+        <div class="different-size box" style="align-items: baseline;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <h1><hr>align-content</h1>
+    <div class="wrap">
+        <h2>flex-start</h2>
+        <div class="row-wrap box" style="align-content: flex-start;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>flex-end</h2>
+        <div class="row-wrap box" style="align-content: flex-end;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>center</h2>
+        <div class="row-wrap box" style="align-content: center;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>space-between</h2>
+        <div class="row-wrap box" style="align-content: space-between;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>space-around</h2>
+        <div class="row-wrap box" style="align-content: space-around;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h2>stretch</h2>
+        <div class="row-wrap box" style="align-content: stretch;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+            <div>Six</div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>align-self</h1>
+        <hr class="dashed" style="top: 109px;">
+        <div class="different-size box">
+            <div style="align-self: flex-start">
+                flex-start
+            </div>
+            <div style="align-self: flex-end">
+                flex-end
+            </div>
+            <div style="align-self: center">
+                center
+            </div>
+            <div style="align-self: baseline">
+                baseline
+            </div>
+            <div style="align-self: stretch">
+                stretch
+            </div>
+            <div style="align-self: baseline">
+                baseline
+            </div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>flex-grow</h1>
+        <div class="no-width box">
+            <div style="flex-grow: 2;">
+                flex-grow: 2
+            </div>
+            <div style="flex-grow: 4;">
+                flex-grow: 4
+            </div>
+            <div  style="flex-grow: 1;">
+                flex-grow: 1
+            </div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>flex-shrink</h1>
+        <div class="box">
+            <div style="flex-shrink: 2;">
+                flex-shrink: 2
+            </div>
+            <div style="flex-shrink: 4;">
+                flex-shrink: 4
+            </div>
+            <div  style="flex-shrink: 1;">
+                flex-shrink: 1
+            </div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>flex-basis</h1>
+        <div class="no-width box">
+            <div style="flex-basis: 200px;">
+                flex-basis: 200px
+            </div>
+            <div style="flex-basis: 400px;">
+                flex-basis: 400px
+            </div>
+            <div  style="flex-basis: 100px;">
+                flex-basis: 100px
+            </div>
+        </div>
+    </div>
+    <div class="wrap" style="width: 100%">
+        <hr>
+        <h1>flex</h1>
+        <div class="no-width box">
+            <div style="flex: 0 0 200px;">
+                flex: 0 0 200px;
+            </div>
+            <div style="flex: 1 0 200px;">
+                flex: 1 0 200px;
+            </div>
+            <div  style="flex: 4 2 200px;">
+                flex: 4 2 200px;
+            </div>
+            <div  style="flex: 0 0 auto;">
+                flex: 0 0 auto;
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
