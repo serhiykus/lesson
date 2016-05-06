@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Angular Material CSS -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body ng-app="application" layout="row" ng-controller="myController" ng-cloak>
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-2dp">
+        <md-toolbar>
+            <div layout-margin>
+                <img style="border-radius: 50%; " src="http://lorempixel.com/80/80/people">
+                <h3>Will Smith</h3>
+                <p class="md-caption">example@mail.com</p>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item ng-repeat="item in pages">
+                <md-icon style="margin: 0" md-font-set="material-icons"> {{item.icon}} </md-icon>
+                <span>{{item.name}} </span>
+            </md-list-item>
+            <md-subheader class="md-no-sticky">Management</md-subheader>
+            <md-list-item ng-repeat="item in management">
+                <md-icon style="margin: 0" md-font-set="material-icons"> {{item.icon}} </md-icon>
+                <span>{{item.name}} </span>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <div layout="column" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button  hide-gt-sm ng-click="$mdSidenav('left').toggle()" class="md-icon-button">
+                    <md-icon md-font-set="material-icons"> menu </md-icon>
+                </md-button>
+                Dashboard
+            </div>
+        </md-toolbar>
+        <md-content>
+            <div class="inset"></div>
+            <div layout="row" layout-align="center center">
+                <md-card flex="80">
+                    <md-list>
+                        <md-list-item class="md-2-line md-contact" ng-repeat="item in [1,2,3,4,5]">
+                            <img class="md-avatar" src="http://lorempixel.com/80/80/people?{{$index}}">
+                            <div class="md-list-item-text md-offset">
+                                <h3>Will Smith</h3>
+                                <p class="md-caption">example@mail.com</p>
+                            </div>
+                            <md-divider md-inset ng-if="!$last"></md-divider>
+                        </md-list-item>
+                    </md-list>
+                    <md-button>
+                        More
+                        <md-icon md-font-icon="material-icons"> arrow_forward </md-icon>
+                    </md-button>
+                </md-card>
+            </div>
+        </md-content>
+        <md-button md-ripple-size="partial" class="md-fab md-fab-bottom-right md-primary">
+            <md-icon md-font-set="material-icons"> add </md-icon>
+        </md-button>
+    </div>
+
+    <!-- Angular Material Dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+    <!-- Angular Material  -->
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <!-- my scripts-->
+    <script src="js/controllers.js"></script>
+    <script type="text/javascript">
+        angular.module('application', ['ngMaterial', 'myControllers']).config(function($mdIconProvider){
+            $mdIconProvider.iconSet('icons', 'icons/icons.svg', 24);
+        }).run(function($rootScope, $mdSidenav){
+            $rootScope.$mdSidenav = $mdSidenav;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "example_which_demonstrated_angular_material",
+  "version": "0.0.0",
+  "description": "It's an example which demonstrated Angular Material on the lesson",
+  "main": "server.js",
+  "scripts": {
+    "prestart": "bower install",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Angular",
+    "Material"
+  ],
+  "author": "Sergiy Kushnir",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
