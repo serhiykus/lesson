@@ -12,34 +12,41 @@
         }
     </style>
 </head>
-<body ng-app="application" layout="row" ng-controller="myController" ng-cloak>
+<body ng-app="application" layout="row" ng-controller="myController"  style="height: 100%; overflow: hidden;" ng-cloak>
     <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-2dp">
         <md-toolbar>
             <div layout-margin>
-                <img style="border-radius: 50%; " src="http://lorempixel.com/80/80/people">
+                <img style="border-radius: 50%;" src="icons/avatar.svg">
                 <h3>Will Smith</h3>
                 <p class="md-caption">example@mail.com</p>
             </div>
         </md-toolbar>
         <md-list>
-            <md-list-item ng-repeat="item in pages">
+            <md-list-item ng-repeat="item in pages" ng-click="null">
                 <md-icon style="margin: 0" md-font-set="material-icons"> {{item.icon}} </md-icon>
                 <span>{{item.name}} </span>
             </md-list-item>
             <md-subheader class="md-no-sticky">Management</md-subheader>
-            <md-list-item ng-repeat="item in management">
+            <md-list-item ng-repeat="item in management" ng-click="null">
                 <md-icon style="margin: 0" md-font-set="material-icons"> {{item.icon}} </md-icon>
                 <span>{{item.name}} </span>
             </md-list-item>
+            <md-list-item ng-click="toast()">
+                <md-icon style="margin: 0" md-font-set="material-icons"> code</md-icon>
+                <span> Custom toast </span>
+            </md-list-item>
         </md-list>
     </md-sidenav>
-    <div layout="column" flex>
-        <md-toolbar>
+    <div flex layout="column" style="height: 100%">
+        <md-toolbar ng-click="ripple($event)" style="background-color: rgb({{r}}, {{g}}, {{b}});">
             <div class="md-toolbar-tools">
                 <md-button  hide-gt-sm ng-click="$mdSidenav('left').toggle()" class="md-icon-button">
                     <md-icon md-font-set="material-icons"> menu </md-icon>
                 </md-button>
-                Dashboard
+                <span flex>Dashboard</span>
+                <md-button  ng-click="bottomSheet()" class="md-icon-button">
+                    <md-icon md-font-set="material-icons"> more_vert </md-icon>
+                </md-button>
             </div>
         </md-toolbar>
         <md-content>
@@ -47,11 +54,11 @@
             <div layout="row" layout-align="center center">
                 <md-card flex="80">
                     <md-list>
-                        <md-list-item class="md-2-line md-contact" ng-repeat="item in [1,2,3,4,5]">
-                            <img class="md-avatar" src="http://lorempixel.com/80/80/people?{{$index}}">
+                        <md-list-item md-ink-ripple="#ff0000" class="md-2-line md-contact" ng-repeat="user in users.friends">
+                            <img class="md-avatar" src="icons/avatar.svg">
                             <div class="md-list-item-text md-offset">
-                                <h3>Will Smith</h3>
-                                <p class="md-caption">example@mail.com</p>
+                                <h3>{{ user.name }}</h3>
+                                <p class="md-caption">{{ user.email }}</p>
                             </div>
                             <md-divider md-inset ng-if="!$last"></md-divider>
                         </md-list-item>
@@ -63,7 +70,7 @@
                 </md-card>
             </div>
         </md-content>
-        <md-button md-ripple-size="partial" class="md-fab md-fab-bottom-right md-primary">
+        <md-button ng-click="dialog()" id="dialog" md-ripple-size="partial" class="md-fab md-fab-bottom-right md-primary">
             <md-icon md-font-set="material-icons"> add </md-icon>
         </md-button>
     </div>
